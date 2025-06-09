@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             tableLayoutPanel2 = new TableLayoutPanel();
+            dgvKH = new DataGridView();
             txtTimKiem = new TextBox();
             btnThem = new Button();
-            dgvKH = new DataGridView();
             groupBox6 = new GroupBox();
             dtpNgayKetThuc = new DateTimePicker();
             groupBox7 = new GroupBox();
@@ -49,22 +49,36 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.1572342F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.8427658F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 128F));
+            tableLayoutPanel2.Controls.Add(dgvKH, 0, 1);
             tableLayoutPanel2.Controls.Add(txtTimKiem, 0, 0);
             tableLayoutPanel2.Controls.Add(btnThem, 3, 0);
-            tableLayoutPanel2.Controls.Add(dgvKH, 2, 1);
             tableLayoutPanel2.Controls.Add(groupBox6, 2, 0);
             tableLayoutPanel2.Controls.Add(groupBox7, 1, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Margin = new Padding(4);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 3;
+            tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 73F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 47F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel2.Size = new Size(938, 427);
             tableLayoutPanel2.TabIndex = 2;
-            tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
+            // 
+            // dgvKH
+            // 
+            dgvKH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvKH.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tableLayoutPanel2.SetColumnSpan(dgvKH, 4);
+            dgvKH.Dock = DockStyle.Fill;
+            dgvKH.Location = new Point(4, 77);
+            dgvKH.Margin = new Padding(4);
+            dgvKH.MultiSelect = false;
+            dgvKH.Name = "dgvKH";
+            dgvKH.ReadOnly = true;
+            dgvKH.Size = new Size(930, 346);
+            dgvKH.TabIndex = 21;
+            dgvKH.CellDoubleClick += dgvKH_CellDoubleClick;
             // 
             // txtTimKiem
             // 
@@ -89,20 +103,7 @@
             btnThem.TabIndex = 19;
             btnThem.Text = "Thêm mới";
             btnThem.UseVisualStyleBackColor = false;
-            // 
-            // dgvKH
-            // 
-            dgvKH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvKH.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tableLayoutPanel2.SetColumnSpan(dgvKH, 4);
-            dgvKH.Dock = DockStyle.Fill;
-            dgvKH.Location = new Point(4, 124);
-            dgvKH.Margin = new Padding(4);
-            dgvKH.MultiSelect = false;
-            dgvKH.Name = "dgvKH";
-            dgvKH.ReadOnly = true;
-            dgvKH.Size = new Size(930, 299);
-            dgvKH.TabIndex = 13;
+            btnThem.Click += btnThem_Click;
             // 
             // groupBox6
             // 
@@ -163,6 +164,7 @@
             Margin = new Padding(4);
             Name = "KhachHangUC";
             Size = new Size(938, 427);
+            Load += KhachHangUC_Load;
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvKH).EndInit();
@@ -174,12 +176,12 @@
         #endregion
 
         private TableLayoutPanel tableLayoutPanel2;
-        private DataGridView dgvKH;
         private GroupBox groupBox6;
         private DateTimePicker dtpNgayKetThuc;
         private GroupBox groupBox7;
         private DateTimePicker dtpNgayBatDau;
         private Button btnThem;
         private TextBox txtTimKiem;
+        private DataGridView dgvKH;
     }
 }

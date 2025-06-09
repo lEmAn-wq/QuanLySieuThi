@@ -90,25 +90,26 @@ namespace QuanLySieuThi.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var text = button1.Text.ToLower();
             try
             {
                 if (ValidateInput())
                 {
-                    if (text == "thêm")
+                    if (button1.Text == "Thêm")
                     {
                         _uuDaiService.CreateVoucher(_uuDai);
+                        TienIch.UIHelper.ShowMessage($"Ưu đãi đã được thêm thành công!");
                     }
-                    else if (text == "sửa")
+                    else if (button1.Text == "Sửa")
                     {
                         _uuDaiService.UpdateVoucher(_uuDai);
+                        TienIch.UIHelper.ShowMessage($"Ưu đãi đã được sửa thành công!");
+                        Close();
                     }
-                    TienIch.UIHelper.ShowMessage($"Ưu đãi đã được {text} thành công!");
                 }
             }
             catch (Exception ex)
             {
-                TienIch.UIHelper.ShowMessageError($"Lỗi khi {text} ưu đãi: " + ex.Message);
+                TienIch.UIHelper.ShowMessageError($"Lỗi: " + ex.Message);
             }
         }
 

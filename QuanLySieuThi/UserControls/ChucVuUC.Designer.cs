@@ -68,6 +68,7 @@
             btnThem.TabIndex = 16;
             btnThem.Text = "Thêm mới";
             btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
             // dgvChucVu
             // 
@@ -82,6 +83,7 @@
             dgvChucVu.ReadOnly = true;
             dgvChucVu.Size = new Size(930, 358);
             dgvChucVu.TabIndex = 13;
+            dgvChucVu.CellDoubleClick += dgvChucVu_CellDoubleClick;
             // 
             // txtTimKiem
             // 
@@ -105,6 +107,7 @@
             Margin = new Padding(4);
             Name = "ChucVuUC";
             Size = new Size(938, 427);
+            Load += ChucVuUC_Load;
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvChucVu).EndInit();

@@ -24,19 +24,22 @@ namespace QuanLySieuThi.Forms
         private void chứcVụToolStripMenuItem_Click(object sender, EventArgs e)
         {
             labelTieuDe.Text = "CHỨC VỤ";
-            UIHelper.LoadUserControlToPanel(panel1, new ChucVuUC());
+            var chucVuService = new Service.ChucVuService(new Repository.ChucVuRepository(new Models.QlsieuThiContext()));
+            UIHelper.LoadUserControlToPanel(panel1, new ChucVuUC(chucVuService));
         }
 
         private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             labelTieuDe.Text = "KHÁCH HÀNG";
-            UIHelper.LoadUserControlToPanel(panel1, new KhachHangUC());
+            var khachHangService = new Service.KhachHangService(new Repository.KhachHangRepository(new Models.QlsieuThiContext()));
+            UIHelper.LoadUserControlToPanel(panel1, new KhachHangUC(khachHangService));
         }
 
         private void nhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             labelTieuDe.Text = "NHÀ CUNG CẤP";
-            UIHelper.LoadUserControlToPanel(panel1, new NhaCungCapUC());
+            var nhaCungCapService = new Service.NhaCungCapService(new Repository.NhaCungCapRepository(new Models.QlsieuThiContext()));
+            UIHelper.LoadUserControlToPanel(panel1, new NhaCungCapUC(nhaCungCapService));
         }
 
         private void sảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)

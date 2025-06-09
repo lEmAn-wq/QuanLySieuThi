@@ -87,8 +87,6 @@
             txtTenKH.Name = "txtTenKH";
             txtTenKH.Size = new Size(452, 27);
             txtTenKH.TabIndex = 0;
-            txtTenKH.Text = "dddddd";
-            txtTenKH.Visible = false;
             // 
             // groupBox1
             // 
@@ -124,8 +122,6 @@
             txtSDT.Name = "txtSDT";
             txtSDT.Size = new Size(452, 27);
             txtSDT.TabIndex = 0;
-            txtSDT.Text = "dddddd";
-            txtSDT.Visible = false;
             // 
             // groupBox3
             // 
@@ -144,6 +140,7 @@
             // 
             cboGioiTinh.Dock = DockStyle.Fill;
             cboGioiTinh.FormattingEnabled = true;
+            cboGioiTinh.Items.AddRange(new object[] { "Nam", "Nữ" });
             cboGioiTinh.Location = new Point(4, 24);
             cboGioiTinh.Name = "cboGioiTinh";
             cboGioiTinh.Size = new Size(452, 28);
@@ -192,8 +189,6 @@
             txtDiemTichLuy.ReadOnly = true;
             txtDiemTichLuy.Size = new Size(452, 27);
             txtDiemTichLuy.TabIndex = 0;
-            txtDiemTichLuy.Text = "dddddd";
-            txtDiemTichLuy.Visible = false;
             // 
             // groupBox6
             // 
@@ -217,8 +212,6 @@
             txtNgayDangKyThanhVien.ReadOnly = true;
             txtNgayDangKyThanhVien.Size = new Size(452, 27);
             txtNgayDangKyThanhVien.TabIndex = 0;
-            txtNgayDangKyThanhVien.Text = "dddddd";
-            txtNgayDangKyThanhVien.Visible = false;
             // 
             // btnXoa
             // 
@@ -232,6 +225,7 @@
             btnXoa.TabIndex = 30;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // KhachHangForm
             // 

@@ -138,6 +138,7 @@ namespace QuanLySieuThi.Forms
                         thuongHieuService.UpdateBrand(thuongHieu);
                         TienIch.UIHelper.ShowMessage("Sửa thương hiệu thành công!");
                     }
+                    Close();
                 }
             }
             catch (Exception ex)
@@ -148,24 +149,31 @@ namespace QuanLySieuThi.Forms
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                if (luaChon == 1)
+                if (MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    nganhHangService.Delete(nganhHang);
-                    TienIch.UIHelper.ShowMessage("Xóa ngành hàng thành công!");
+                    if (luaChon == 1)
+                    {
+                        nganhHangService.Delete(nganhHang);
+                        TienIch.UIHelper.ShowMessage("Xóa ngành hàng thành công!");
+                    }
+                    else if (luaChon == 2)
+                    {
+                        loaiSanPhamService.Delete(loaiSanPham);
+                        TienIch.UIHelper.ShowMessage("Xóa loại sản phẩm thành công!");
+                    }
+                    else if (luaChon == 3)
+                    {
+                        thuongHieuService.DeleteBrand(thuongHieu);
+                        TienIch.UIHelper.ShowMessage("Xóa thương hiệu thành công!");
+                    }
+                    Close();
                 }
-                else if (luaChon == 2)
-                {
-                    loaiSanPhamService.Delete(loaiSanPham);
-                    TienIch.UIHelper.ShowMessage("Xóa loại sản phẩm thành công!");
-                }
-                else if (luaChon == 3)
-                {
-                    thuongHieuService.DeleteBrand(thuongHieu);
-                    TienIch.UIHelper.ShowMessage("Xóa thương hiệu thành công!");
-                }
-                Close();
+            }
+            catch (Exception ex)
+            {
+                TienIch.UIHelper.ShowMessageError("Lỗi: " + ex);
             }
         }
     }

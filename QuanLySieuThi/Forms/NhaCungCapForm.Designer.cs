@@ -81,8 +81,6 @@
             txtTenNCC.Name = "txtTenNCC";
             txtTenNCC.Size = new Size(506, 27);
             txtTenNCC.TabIndex = 0;
-            txtTenNCC.Text = "dddddd";
-            txtTenNCC.Visible = false;
             // 
             // groupBox1
             // 
@@ -118,8 +116,6 @@
             txtSDT.Name = "txtSDT";
             txtSDT.Size = new Size(506, 27);
             txtSDT.TabIndex = 0;
-            txtSDT.Text = "dddddd";
-            txtSDT.Visible = false;
             // 
             // groupBox3
             // 
@@ -142,8 +138,6 @@
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(506, 27);
             txtEmail.TabIndex = 1;
-            txtEmail.Text = "dddddd";
-            txtEmail.Visible = false;
             // 
             // groupBox4
             // 
@@ -166,8 +160,6 @@
             txtDiaChi.Name = "txtDiaChi";
             txtDiaChi.Size = new Size(506, 27);
             txtDiaChi.TabIndex = 1;
-            txtDiaChi.Text = "dddddd";
-            txtDiaChi.Visible = false;
             // 
             // btnXoa
             // 
@@ -181,6 +173,7 @@
             btnXoa.TabIndex = 28;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // NhaCungCapForm
             // 

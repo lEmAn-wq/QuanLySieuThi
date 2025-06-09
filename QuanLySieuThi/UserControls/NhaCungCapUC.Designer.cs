@@ -28,27 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dgvNCC = new DataGridView();
             tableLayoutPanel2 = new TableLayoutPanel();
-            txtTimKiem = new TextBox();
             btnThem = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            txtTimKiem = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dgvNCC).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvNCC
             // 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tableLayoutPanel2.SetColumnSpan(dataGridView1, 2);
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(4, 65);
-            dataGridView1.Margin = new Padding(4);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(930, 358);
-            dataGridView1.TabIndex = 13;
+            dgvNCC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvNCC.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tableLayoutPanel2.SetColumnSpan(dgvNCC, 2);
+            dgvNCC.Dock = DockStyle.Fill;
+            dgvNCC.Location = new Point(4, 65);
+            dgvNCC.Margin = new Padding(4);
+            dgvNCC.MultiSelect = false;
+            dgvNCC.Name = "dgvNCC";
+            dgvNCC.ReadOnly = true;
+            dgvNCC.Size = new Size(930, 358);
+            dgvNCC.TabIndex = 13;
+            dgvNCC.CellDoubleClick += dgvNCC_CellDoubleClick;
             // 
             // tableLayoutPanel2
             // 
@@ -58,7 +59,7 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel2.Controls.Add(btnThem, 1, 0);
-            tableLayoutPanel2.Controls.Add(dataGridView1, 0, 1);
+            tableLayoutPanel2.Controls.Add(dgvNCC, 0, 1);
             tableLayoutPanel2.Controls.Add(txtTimKiem, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 0);
@@ -69,18 +70,6 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Size = new Size(938, 427);
             tableLayoutPanel2.TabIndex = 3;
-            tableLayoutPanel2.Paint += tableLayoutPanel2_Paint;
-            // 
-            // txtTimKiem
-            // 
-            txtTimKiem.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            txtTimKiem.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            txtTimKiem.Location = new Point(4, 30);
-            txtTimKiem.Margin = new Padding(4);
-            txtTimKiem.Name = "txtTimKiem";
-            txtTimKiem.PlaceholderText = "Tìm kiếm";
-            txtTimKiem.Size = new Size(226, 27);
-            txtTimKiem.TabIndex = 11;
             // 
             // btnThem
             // 
@@ -94,6 +83,18 @@
             btnThem.TabIndex = 20;
             btnThem.Text = "Thêm mới";
             btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
+            // 
+            // txtTimKiem
+            // 
+            txtTimKiem.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txtTimKiem.Font = new Font("Segoe UI", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            txtTimKiem.Location = new Point(4, 30);
+            txtTimKiem.Margin = new Padding(4);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.PlaceholderText = "Tìm kiếm";
+            txtTimKiem.Size = new Size(226, 27);
+            txtTimKiem.TabIndex = 11;
             // 
             // NhaCungCapUC
             // 
@@ -106,14 +107,15 @@
             Margin = new Padding(4);
             Name = "NhaCungCapUC";
             Size = new Size(938, 427);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += NhaCungCapUC_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvNCC).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-        private DataGridView dataGridView1;
+        private DataGridView dgvNCC;
         private TableLayoutPanel tableLayoutPanel2;
         private TextBox txtTimKiem;
         private Button btnThem;

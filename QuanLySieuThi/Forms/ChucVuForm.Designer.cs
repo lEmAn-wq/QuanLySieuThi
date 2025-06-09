@@ -30,10 +30,10 @@
         {
             labelTieuDe = new Label();
             button1 = new Button();
-            textBox1 = new TextBox();
+            txtTenChucVu = new TextBox();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
-            textBox2 = new TextBox();
+            txtLuong = new TextBox();
             btnXoa = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -65,21 +65,20 @@
             button1.TabIndex = 23;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // textBox1
+            // txtTenChucVu
             // 
-            textBox1.Dock = DockStyle.Top;
-            textBox1.Location = new Point(4, 24);
-            textBox1.Margin = new Padding(4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(452, 27);
-            textBox1.TabIndex = 0;
-            textBox1.Text = "dddddd";
-            textBox1.Visible = false;
+            txtTenChucVu.Dock = DockStyle.Top;
+            txtTenChucVu.Location = new Point(4, 24);
+            txtTenChucVu.Margin = new Padding(4);
+            txtTenChucVu.Name = "txtTenChucVu";
+            txtTenChucVu.Size = new Size(452, 27);
+            txtTenChucVu.TabIndex = 0;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtTenChucVu);
             groupBox1.ForeColor = SystemColors.GrayText;
             groupBox1.Location = new Point(35, 131);
             groupBox1.Margin = new Padding(26, 13, 13, 13);
@@ -92,7 +91,7 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(textBox2);
+            groupBox2.Controls.Add(txtLuong);
             groupBox2.ForeColor = SystemColors.GrayText;
             groupBox2.Location = new Point(35, 210);
             groupBox2.Margin = new Padding(26, 13, 13, 13);
@@ -103,16 +102,14 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Lương:";
             // 
-            // textBox2
+            // txtLuong
             // 
-            textBox2.Dock = DockStyle.Top;
-            textBox2.Location = new Point(4, 24);
-            textBox2.Margin = new Padding(4);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(452, 27);
-            textBox2.TabIndex = 0;
-            textBox2.Text = "dddddd";
-            textBox2.Visible = false;
+            txtLuong.Dock = DockStyle.Top;
+            txtLuong.Location = new Point(4, 24);
+            txtLuong.Margin = new Padding(4);
+            txtLuong.Name = "txtLuong";
+            txtLuong.Size = new Size(452, 27);
+            txtLuong.TabIndex = 0;
             // 
             // btnXoa
             // 
@@ -126,6 +123,7 @@
             btnXoa.TabIndex = 27;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // ChucVuForm
             // 
@@ -159,10 +157,10 @@
 
         public Label labelTieuDe;
         private Button button1;
-        private TextBox textBox1;
+        private TextBox txtTenChucVu;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private TextBox textBox2;
+        private TextBox txtLuong;
         private Button btnXoa;
     }
 }
