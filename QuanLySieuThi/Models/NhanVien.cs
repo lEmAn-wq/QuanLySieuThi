@@ -31,5 +31,7 @@ public partial class NhanVien
 
     public virtual ChucVu MaCvNavigation { get; set; } = null!;
 
-    public virtual ICollection<PhieuNhap> PhieuNhaps { get; set; } = new List<PhieuNhap>();
+    public virtual ICollection<PhieuNhap> PhieuNhapMaNvduyetNavigations { get; set; } = new List<PhieuNhap>();
+
+    public virtual ICollection<PhieuNhap> PhieuNhapMaNvlapNavigations { get; set; } = new List<PhieuNhap>();
 }

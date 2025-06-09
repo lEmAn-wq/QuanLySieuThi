@@ -1,4 +1,4 @@
-﻿using QuanLySieuThi.Models;
+﻿using QuanLySieuThi.Forms;
 
 namespace QuanLySieuThi
 {

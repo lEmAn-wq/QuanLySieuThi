@@ -23,6 +23,8 @@ public partial class SanPham
 
     public int MaTh { get; set; }
 
+    public int SoLuong { get; set; }
+
     public virtual ICollection<ChiTietDoiTraHang> ChiTietDoiTraHangs { get; set; } = new List<ChiTietDoiTraHang>();
 
     public virtual ICollection<ChiTietHoaDon> ChiTietHoaDons { get; set; } = new List<ChiTietHoaDon>();

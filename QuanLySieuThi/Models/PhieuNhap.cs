@@ -9,7 +9,9 @@ public partial class PhieuNhap
 
     public string? MaHienThi { get; set; }
 
-    public int MaNv { get; set; }
+    public int MaNvduyet { get; set; }
+
+    public int MaNvlap { get; set; }
 
     public int MaNcc { get; set; }
 
@@ -27,5 +29,7 @@ public partial class PhieuNhap
 
     public virtual NhaCungCap MaNccNavigation { get; set; } = null!;
 
-    public virtual NhanVien MaNvNavigation { get; set; } = null!;
+    public virtual NhanVien MaNvduyetNavigation { get; set; } = null!;
+
+    public virtual NhanVien MaNvlapNavigation { get; set; } = null!;
 }

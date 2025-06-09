@@ -178,7 +178,7 @@ public partial class QlsieuThiContext : DbContext
                 .HasMaxLength(5)
                 .IsUnicode(false)
                 .HasComputedColumnSql("('UD'+right('000'+CONVERT([varchar](3),[MaGGSP]),(3)))", true);
-            entity.Property(e => e.PhanTramGiam).HasColumnType("decimal(5, 4)");
+            entity.Property(e => e.PhanTramGiam).HasColumnType("decimal(5, 3)");
             entity.Property(e => e.SoTienGiam).HasColumnType("money");
         });
 
@@ -366,7 +366,8 @@ public partial class QlsieuThiContext : DbContext
                 .IsUnicode(false)
                 .HasComputedColumnSql("('PN'+right('000'+CONVERT([varchar](3),[MaPN]),(3)))", true);
             entity.Property(e => e.MaNcc).HasColumnName("MaNCC");
-            entity.Property(e => e.MaNv).HasColumnName("MaNV");
+            entity.Property(e => e.MaNvduyet).HasColumnName("MaNVDuyet");
+            entity.Property(e => e.MaNvlap).HasColumnName("MaNVLap");
             entity.Property(e => e.NgayDatHang).HasColumnType("datetime");
             entity.Property(e => e.NgayGiao).HasColumnType("datetime");
             entity.Property(e => e.NgayGiaoDuKien)
@@ -380,8 +381,13 @@ public partial class QlsieuThiContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_PhieuNhap_NhaCungCap");
 
-            entity.HasOne(d => d.MaNvNavigation).WithMany(p => p.PhieuNhaps)
-                .HasForeignKey(d => d.MaNv)
+            entity.HasOne(d => d.MaNvduyetNavigation).WithMany(p => p.PhieuNhapMaNvduyetNavigations)
+                .HasForeignKey(d => d.MaNvduyet)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_PhieuNhap_NhanVien2");
+
+            entity.HasOne(d => d.MaNvlapNavigation).WithMany(p => p.PhieuNhapMaNvlapNavigations)
+                .HasForeignKey(d => d.MaNvlap)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_PhieuNhap_NhanVien");
         });
