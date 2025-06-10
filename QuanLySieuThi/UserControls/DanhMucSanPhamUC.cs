@@ -33,13 +33,13 @@ namespace QuanLySieuThi
         }
         private void DanhMucSanPhamUC_Load(object sender, EventArgs e)
         {
-            dgvUuDaiSanPham.DataSource = _uuDaiService.GetAllVouchers();
+            dgvUuDaiSanPham.DataSource = _uuDaiService.GetAllWithDisplay();
             dgvUuDaiSanPham.Columns["MaHienThi"].HeaderText = "Mã ưu đãi";
             dgvUuDaiSanPham.Columns["PhanTramGiam"].HeaderText = "% Giảm";
             dgvUuDaiSanPham.Columns["SoTienGiam"].HeaderText = "Số Tiền Giảm";
+            dgvUuDaiSanPham.Columns["TenHienThi"].HeaderText = "Tên hiển thị";
 
             dgvUuDaiSanPham.Columns["MaGgsp"].Visible = false; // Ẩn cột MaGgsp
-            dgvUuDaiSanPham.Columns["SanPhams"].Visible = false; // Ẩn cột SanPhams
 
 
             dgvLoaiSanPham.DataSource = _loaiSanPhamService.GetAll();

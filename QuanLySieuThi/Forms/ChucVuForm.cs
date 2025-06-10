@@ -101,6 +101,11 @@ namespace QuanLySieuThi.Forms
         {
             try
             {
+                var confirmResult = TienIch.UIHelper.ShowMessageQuestion("Bạn có chắc chắn muốn xóa chức vụ này?");
+                if (confirmResult != DialogResult.Yes)
+                {
+                    return;
+                }
                 chucVuService.Delete(chucVu);
                 TienIch.UIHelper.ShowMessage("Xóa chức vụ thành công!");
                 Close();

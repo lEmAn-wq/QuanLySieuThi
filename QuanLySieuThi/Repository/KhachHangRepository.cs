@@ -7,7 +7,8 @@ namespace QuanLySieuThi.Repository
     public interface IKhachHangRepository
     {
         IEnumerable<KhachHang> GetAll();
-        KhachHang GetById(int id);           // thêm
+        KhachHang GetById(int id);
+        KhachHang GetByMaHienThi(string maHienThi); 
         void Add(KhachHang khachHang);
         void Update(KhachHang khachHang);
         void Delete(KhachHang khachHang);    // thêm
@@ -20,6 +21,10 @@ namespace QuanLySieuThi.Repository
         public KhachHangRepository(QlsieuThiContext context)
         {
             _context = context;
+        }
+        public KhachHang GetByMaHienThi(string maHienThi)
+        {
+            return _context.KhachHangs.FirstOrDefault(k => k.MaHienThi == maHienThi);
         }
 
         public IEnumerable<KhachHang> GetAll()

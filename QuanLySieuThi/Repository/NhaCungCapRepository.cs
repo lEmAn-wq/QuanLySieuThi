@@ -1,4 +1,5 @@
 ﻿using QuanLySieuThi.Models;
+using Stimulsoft.Blockly.Model;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,10 +9,11 @@ namespace QuanLySieuThi.Repository
     public interface INhaCungCapRepository
     {
         IEnumerable<NhaCungCap> GetAll();
-        NhaCungCap GetById(int id);                // thêm
+        NhaCungCap GetById(int id);
         void Add(NhaCungCap nhaCungCap);
         void Update(NhaCungCap nhaCungCap);
-        void Delete(NhaCungCap nhaCungCap);        // thêm
+        void Delete(NhaCungCap nhaCungCap);
+        NhaCungCap GetByMaHienThi(string maHienThi);
     }
 
     public class NhaCungCapRepository : INhaCungCapRepository
@@ -28,6 +30,10 @@ namespace QuanLySieuThi.Repository
             return _context.NhaCungCaps
                 .OrderByDescending(n => n.MaNcc)
                 .ToList();
+        }
+        public NhaCungCap GetByMaHienThi(string maHienThi)
+        {
+            return _context.NhaCungCaps.FirstOrDefault(n => n.MaHienThi == maHienThi);
         }
 
         public NhaCungCap GetById(int id)

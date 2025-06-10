@@ -51,6 +51,12 @@
             cboPhieuNhapCart = new ComboBox();
             btnSaveCart = new Button();
             btnDeleteCart = new Button();
+            groupBox3 = new GroupBox();
+            dtpNgayGiaoDuKien = new DateTimePicker();
+            MaSP = new DataGridViewTextBoxColumn();
+            TenSP = new DataGridViewTextBoxColumn();
+            GiaNhap = new DataGridViewTextBoxColumn();
+            SoLuong = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -62,6 +68,7 @@
             tableLayoutPanel1.SuspendLayout();
             groupBox7.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -171,6 +178,7 @@
             btnXacNhanNCC.TabIndex = 9;
             btnXacNhanNCC.Text = "Xác nhận";
             btnXacNhanNCC.UseVisualStyleBackColor = false;
+            btnXacNhanNCC.Click += btnXacNhanNCC_Click;
             // 
             // lblTongTienCacSanPham
             // 
@@ -195,6 +203,7 @@
             btnXacNhanSP.TabIndex = 26;
             btnXacNhanSP.Text = "Xác nhận";
             btnXacNhanSP.UseVisualStyleBackColor = false;
+            btnXacNhanSP.Click += btnXacNhanSP_Click;
             // 
             // txtMaSP
             // 
@@ -232,6 +241,7 @@
             btnTaoPhieuNhap.TabIndex = 33;
             btnTaoPhieuNhap.Text = "Tạo phiếu nhập";
             btnTaoPhieuNhap.UseVisualStyleBackColor = false;
+            btnTaoPhieuNhap.Click += btnTaoPhieuNhap_Click;
             // 
             // tableLayoutPanel2
             // 
@@ -253,6 +263,7 @@
             // 
             dgvSP_Nhap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvSP_Nhap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSP_Nhap.Columns.AddRange(new DataGridViewColumn[] { MaSP, TenSP, GiaNhap, SoLuong });
             dgvSP_Nhap.Dock = DockStyle.Fill;
             dgvSP_Nhap.Location = new Point(4, 67);
             dgvSP_Nhap.Margin = new Padding(4);
@@ -278,12 +289,13 @@
             // 
             tableLayoutPanel1.ColumnCount = 4;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 541F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 202F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 320F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 121F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 401F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(groupBox7, 0, 0);
             tableLayoutPanel1.Controls.Add(groupBox1, 0, 1);
             tableLayoutPanel1.Controls.Add(groupBox6, 0, 2);
+            tableLayoutPanel1.Controls.Add(groupBox3, 2, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(4);
@@ -354,6 +366,49 @@
             btnDeleteCart.Text = "Xóa phiếu nhập";
             btnDeleteCart.UseVisualStyleBackColor = true;
             // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(dtpNgayGiaoDuKien);
+            groupBox3.ForeColor = SystemColors.GrayText;
+            groupBox3.Location = new Point(688, 13);
+            groupBox3.Margin = new Padding(26, 13, 13, 13);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Padding = new Padding(4);
+            groupBox3.Size = new Size(281, 65);
+            groupBox3.TabIndex = 38;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Ngày giao dự kiến:";
+            // 
+            // dtpNgayGiaoDuKien
+            // 
+            dtpNgayGiaoDuKien.Dock = DockStyle.Fill;
+            dtpNgayGiaoDuKien.Location = new Point(4, 24);
+            dtpNgayGiaoDuKien.Name = "dtpNgayGiaoDuKien";
+            dtpNgayGiaoDuKien.Size = new Size(273, 27);
+            dtpNgayGiaoDuKien.TabIndex = 0;
+            // 
+            // MaSP
+            // 
+            MaSP.HeaderText = "Mã sản phẩm";
+            MaSP.Name = "MaSP";
+            MaSP.ReadOnly = true;
+            // 
+            // TenSP
+            // 
+            TenSP.HeaderText = "Tên Sản Phẩm";
+            TenSP.Name = "TenSP";
+            TenSP.ReadOnly = true;
+            // 
+            // GiaNhap
+            // 
+            GiaNhap.HeaderText = "Giá Nhập";
+            GiaNhap.Name = "GiaNhap";
+            // 
+            // SoLuong
+            // 
+            SoLuong.HeaderText = "Số Lượng";
+            SoLuong.Name = "SoLuong";
+            // 
             // PhieuNhapForm
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
@@ -367,6 +422,7 @@
             Name = "PhieuNhapForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Phiếu nhập";
+            Load += PhieuNhapForm_Load;
             groupBox1.ResumeLayout(false);
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
@@ -383,6 +439,7 @@
             groupBox7.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.PerformLayout();
+            groupBox3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -410,5 +467,11 @@
         private ComboBox cboPhieuNhapCart;
         private Button btnSaveCart;
         private Button btnDeleteCart;
+        private GroupBox groupBox3;
+        private DateTimePicker dtpNgayGiaoDuKien;
+        private DataGridViewTextBoxColumn MaSP;
+        private DataGridViewTextBoxColumn TenSP;
+        private DataGridViewTextBoxColumn GiaNhap;
+        private DataGridViewTextBoxColumn SoLuong;
     }
 }

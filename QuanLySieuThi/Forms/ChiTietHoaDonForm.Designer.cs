@@ -59,6 +59,12 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
             btnDoiTra = new Button();
+            MaSP = new DataGridViewTextBoxColumn();
+            TenSP = new DataGridViewTextBoxColumn();
+            GiaBan = new DataGridViewTextBoxColumn();
+            SoLuongBan = new DataGridViewTextBoxColumn();
+            SoLuongDoi = new DataGridViewTextBoxColumn();
+            SoLuongTra = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvSanPham_Ban).BeginInit();
             groupBox10.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -82,6 +88,7 @@
             // 
             dgvSanPham_Ban.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvSanPham_Ban.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSanPham_Ban.Columns.AddRange(new DataGridViewColumn[] { MaSP, TenSP, GiaBan, SoLuongBan, SoLuongDoi, SoLuongTra });
             dgvSanPham_Ban.Dock = DockStyle.Fill;
             dgvSanPham_Ban.Location = new Point(3, 23);
             dgvSanPham_Ban.Margin = new Padding(4);
@@ -453,6 +460,42 @@
             btnDoiTra.Text = "Đổi trả";
             btnDoiTra.UseVisualStyleBackColor = true;
             // 
+            // MaSP
+            // 
+            MaSP.HeaderText = "Mã sản phẩm";
+            MaSP.Name = "MaSP";
+            MaSP.ReadOnly = true;
+            // 
+            // TenSP
+            // 
+            TenSP.HeaderText = "Tên sản phẩm";
+            TenSP.Name = "TenSP";
+            TenSP.ReadOnly = true;
+            // 
+            // GiaBan
+            // 
+            GiaBan.HeaderText = "Giá bán";
+            GiaBan.Name = "GiaBan";
+            GiaBan.ReadOnly = true;
+            // 
+            // SoLuongBan
+            // 
+            SoLuongBan.HeaderText = "Số lượng bán";
+            SoLuongBan.Name = "SoLuongBan";
+            SoLuongBan.ReadOnly = true;
+            // 
+            // SoLuongDoi
+            // 
+            SoLuongDoi.HeaderText = "Số lượng đổi";
+            SoLuongDoi.Name = "SoLuongDoi";
+            SoLuongDoi.ReadOnly = true;
+            // 
+            // SoLuongTra
+            // 
+            SoLuongTra.HeaderText = "Số lượng trả";
+            SoLuongTra.Name = "SoLuongTra";
+            SoLuongTra.ReadOnly = true;
+            // 
             // ChiTietHoaDonForm
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
@@ -531,5 +574,11 @@
         private TextBox txtLyDoDoiTra;
         private GroupBox groupBox13;
         private TextBox txtTongTienTraLai;
+        private DataGridViewTextBoxColumn MaSP;
+        private DataGridViewTextBoxColumn TenSP;
+        private DataGridViewTextBoxColumn GiaBan;
+        private DataGridViewTextBoxColumn SoLuongBan;
+        private DataGridViewTextBoxColumn SoLuongDoi;
+        private DataGridViewTextBoxColumn SoLuongTra;
     }
 }

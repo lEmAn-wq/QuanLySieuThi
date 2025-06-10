@@ -370,9 +370,7 @@ public partial class QlsieuThiContext : DbContext
             entity.Property(e => e.MaNvlap).HasColumnName("MaNVLap");
             entity.Property(e => e.NgayDatHang).HasColumnType("datetime");
             entity.Property(e => e.NgayGiao).HasColumnType("datetime");
-            entity.Property(e => e.NgayGiaoDuKien)
-                .HasMaxLength(50)
-                .IsUnicode(false);
+            entity.Property(e => e.NgayGiaoDuKien).HasColumnType("datetime");
             entity.Property(e => e.TongTienPhaiTra).HasColumnType("money");
             entity.Property(e => e.TrangThai).HasMaxLength(50);
 
@@ -383,7 +381,6 @@ public partial class QlsieuThiContext : DbContext
 
             entity.HasOne(d => d.MaNvduyetNavigation).WithMany(p => p.PhieuNhapMaNvduyetNavigations)
                 .HasForeignKey(d => d.MaNvduyet)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_PhieuNhap_NhanVien2");
 
             entity.HasOne(d => d.MaNvlapNavigation).WithMany(p => p.PhieuNhapMaNvlapNavigations)

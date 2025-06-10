@@ -11,6 +11,9 @@ namespace QuanLySieuThi.Service
         void Create(KhachHang khachHang);
         void Update(KhachHang khachHang);
         void Delete(KhachHang khachHang);
+
+        KhachHang GetByMaHienThi(string maHienThi);
+
     }
 
     public class KhachHangService : IKhachHangService
@@ -20,6 +23,10 @@ namespace QuanLySieuThi.Service
         public KhachHangService(IKhachHangRepository repo)
         {
             _repo = repo;
+        }
+        public KhachHang GetByMaHienThi(string maHienThi)
+        {
+            return _repo.GetByMaHienThi(maHienThi);
         }
 
         public IEnumerable<KhachHang> GetAll()

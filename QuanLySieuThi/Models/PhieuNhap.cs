@@ -9,7 +9,7 @@ public partial class PhieuNhap
 
     public string? MaHienThi { get; set; }
 
-    public int MaNvduyet { get; set; }
+    public int? MaNvduyet { get; set; }
 
     public int MaNvlap { get; set; }
 
@@ -17,9 +17,9 @@ public partial class PhieuNhap
 
     public DateTime NgayDatHang { get; set; }
 
-    public string NgayGiaoDuKien { get; set; } = null!;
+    public DateTime? NgayGiaoDuKien { get; set; }
 
-    public DateTime NgayGiao { get; set; }
+    public DateTime? NgayGiao { get; set; }
 
     public decimal TongTienPhaiTra { get; set; }
 
@@ -29,7 +29,7 @@ public partial class PhieuNhap
 
     public virtual NhaCungCap MaNccNavigation { get; set; } = null!;
 
-    public virtual NhanVien MaNvduyetNavigation { get; set; } = null!;
+    public virtual NhanVien? MaNvduyetNavigation { get; set; }
 
     public virtual NhanVien MaNvlapNavigation { get; set; } = null!;
 }

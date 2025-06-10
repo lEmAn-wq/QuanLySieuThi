@@ -12,6 +12,7 @@ namespace QuanLySieuThi.Repository
         void Add(SanPham sanPham);
         void Update(SanPham sanPham);
         void Delete(SanPham sanPham);   // thêm
+        SanPham GetByMaHienThi(string maHienThi); // thêm
     }
 
     public class SanPhamRepository : ISanPhamRepository
@@ -32,6 +33,15 @@ namespace QuanLySieuThi.Repository
                 .Include(sp => sp.MaThNavigation)
                 .OrderByDescending(sp => sp.MaSp)
                 .ToList();
+        }
+        public SanPham GetByMaHienThi(string maHienThi)
+        {
+            return _context.SanPhams
+                .Include(sp => sp.MaGgspNavigation)
+                .Include(sp => sp.MaLspNavigation)
+                .Include(sp => sp.MaNhNavigation)
+                .Include(sp => sp.MaThNavigation)
+                .FirstOrDefault(sp => sp.MaHienThi == maHienThi);
         }
 
         public SanPham GetById(int id)

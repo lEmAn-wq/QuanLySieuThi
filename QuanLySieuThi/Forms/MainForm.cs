@@ -1,18 +1,26 @@
 ﻿using QuanLySieuThi.TienIch;
 using QuanLySieuThi.UserControls;
+using QuanLySieuThi.Service;
+using QuanLySieuThi.Models;
 namespace QuanLySieuThi.Forms
 {
     public partial class MainForm : System.Windows.Forms.Form
     {
-        public MainForm()
+        public static NhanVien nhanVien;
+        private bool isClosedByCode = false;
+
+        public MainForm(NhanVien nhanVien)
         {
             InitializeComponent();
+            MainForm.nhanVien = nhanVien;
+            lblThongTinNhanVien.Text = $"{nhanVien.TenNv} - {nhanVien.MaHienThi}\n Chức vụ: {nhanVien.MaCvNavigation.TenCv}";
         }
 
         private void nhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             labelTieuDe.Text = "NHÂN VIÊN";
-            UIHelper.LoadUserControlToPanel(panel1, new NhanVienUC());
+            var nhanVienService = new Service.NhanVienService(new Repository.NhanVienRepository(new Models.QlsieuThiContext()));
+            UIHelper.LoadUserControlToPanel(panel1, new NhanVienUC(nhanVienService));
         }
 
         private void tạoHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,19 +63,30 @@ namespace QuanLySieuThi.Forms
             var nganhHangService = new Service.NganhHangService(new Repository.NganhHangRepository(new Models.QlsieuThiContext()));
             var loaiSanPhamService = new Service.LoaiSanPhamService(new Repository.LoaiSanPhamRepository(new Models.QlsieuThiContext()));
             var thuongHieuService = new Service.ThuongHieuService(new Repository.ThuongHieuRepository(new Models.QlsieuThiContext()));
-            UIHelper.LoadUserControlToPanel(panel1, new DanhMucSanPhamUC(uuDaiService,nganhHangService,loaiSanPhamService,thuongHieuService));
+            UIHelper.LoadUserControlToPanel(panel1, new DanhMucSanPhamUC(uuDaiService, nganhHangService, loaiSanPhamService, thuongHieuService));
         }
 
         private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             labelTieuDe.Text = "HÓA ĐƠN";
-            UIHelper.LoadUserControlToPanel(panel1, new HoaDonUC());
+            var hoaDonService = new Service.HoaDonService(new Repository.HoaDonRepository(new Models.QlsieuThiContext()));
+            UIHelper.LoadUserControlToPanel(panel1, new HoaDonUC(hoaDonService));
         }
 
         private void phiếuNhậpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             labelTieuDe.Text = "PHIẾU NHẬP";
             UIHelper.LoadUserControlToPanel(panel1, new PhieuNhapUC());
+        }
+
+        private void btnDX_Click(object sender, EventArgs e)
+        {
+            var xacNhan = UIHelper.ShowMessageQuestion("Bạn có chắc muốn đăng xuất không?");
+            if (xacNhan == DialogResult.Yes)
+            {
+                isClosedByCode = true; // Đánh dấu đóng bằng code
+                Close();
+            }
         }
     }
 }

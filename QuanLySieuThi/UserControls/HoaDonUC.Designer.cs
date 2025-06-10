@@ -30,14 +30,10 @@
         {
             tableLayoutPanel2 = new TableLayoutPanel();
             dgvHoaDon = new DataGridView();
-            dataGridViewButtonColumn1 = new DataGridViewButtonColumn();
-            dataGridViewCheckBoxColumn1 = new DataGridViewCheckBoxColumn();
-            dataGridViewComboBoxColumn1 = new DataGridViewComboBoxColumn();
-            dataGridViewImageColumn1 = new DataGridViewImageColumn();
-            dataGridViewLinkColumn1 = new DataGridViewLinkColumn();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             flowLayoutPanel3 = new FlowLayoutPanel();
             txtTimKiem = new TextBox();
+            groupBox3 = new GroupBox();
+            cboTrangThaiDonHang = new ComboBox();
             groupBox1 = new GroupBox();
             dtpNgayBatDau = new DateTimePicker();
             groupBox2 = new GroupBox();
@@ -46,15 +42,13 @@
             lblTongTien = new Label();
             btnTinhTongTien = new Button();
             btnThongKe = new Button();
-            groupBox3 = new GroupBox();
-            cboTrangThaiDonHang = new ComboBox();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHoaDon).BeginInit();
             flowLayoutPanel3.SuspendLayout();
+            groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             flowLayoutPanel4.SuspendLayout();
-            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -79,7 +73,6 @@
             // 
             dgvHoaDon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvHoaDon.Columns.AddRange(new DataGridViewColumn[] { dataGridViewButtonColumn1, dataGridViewCheckBoxColumn1, dataGridViewComboBoxColumn1, dataGridViewImageColumn1, dataGridViewLinkColumn1, dataGridViewTextBoxColumn1 });
             tableLayoutPanel2.SetColumnSpan(dgvHoaDon, 2);
             dgvHoaDon.Dock = DockStyle.Fill;
             dgvHoaDon.Location = new Point(4, 101);
@@ -88,43 +81,7 @@
             dgvHoaDon.ReadOnly = true;
             dgvHoaDon.Size = new Size(930, 249);
             dgvHoaDon.TabIndex = 11;
-            // 
-            // dataGridViewButtonColumn1
-            // 
-            dataGridViewButtonColumn1.HeaderText = "Column1";
-            dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            dataGridViewButtonColumn1.ReadOnly = true;
-            dataGridViewButtonColumn1.Text = "adddddddddddđ";
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            dataGridViewCheckBoxColumn1.HeaderText = "Column2";
-            dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            dataGridViewCheckBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewComboBoxColumn1
-            // 
-            dataGridViewComboBoxColumn1.HeaderText = "Column3";
-            dataGridViewComboBoxColumn1.Name = "dataGridViewComboBoxColumn1";
-            dataGridViewComboBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            dataGridViewImageColumn1.HeaderText = "Column4";
-            dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            dataGridViewImageColumn1.ReadOnly = true;
-            // 
-            // dataGridViewLinkColumn1
-            // 
-            dataGridViewLinkColumn1.HeaderText = "Column5";
-            dataGridViewLinkColumn1.Name = "dataGridViewLinkColumn1";
-            dataGridViewLinkColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.HeaderText = "Column6";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
+            dgvHoaDon.CellDoubleClick += dgvHoaDon_CellDoubleClick;
             // 
             // flowLayoutPanel3
             // 
@@ -149,6 +106,27 @@
             txtTimKiem.PlaceholderText = "Tìm kiếm";
             txtTimKiem.Size = new Size(189, 27);
             txtTimKiem.TabIndex = 13;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(cboTrangThaiDonHang);
+            groupBox3.Location = new Point(217, 10);
+            groupBox3.Margin = new Padding(20, 10, 10, 10);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Padding = new Padding(9);
+            groupBox3.Size = new Size(200, 68);
+            groupBox3.TabIndex = 16;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Trạng thái đơn hàng";
+            // 
+            // cboTrangThaiDonHang
+            // 
+            cboTrangThaiDonHang.Dock = DockStyle.Fill;
+            cboTrangThaiDonHang.FormattingEnabled = true;
+            cboTrangThaiDonHang.Location = new Point(9, 29);
+            cboTrangThaiDonHang.Name = "cboTrangThaiDonHang";
+            cboTrangThaiDonHang.Size = new Size(182, 28);
+            cboTrangThaiDonHang.TabIndex = 17;
             // 
             // groupBox1
             // 
@@ -241,27 +219,6 @@
             btnThongKe.Text = "Tạo biểu đồ thống kê";
             btnThongKe.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(cboTrangThaiDonHang);
-            groupBox3.Location = new Point(217, 10);
-            groupBox3.Margin = new Padding(20, 10, 10, 10);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(9);
-            groupBox3.Size = new Size(200, 68);
-            groupBox3.TabIndex = 16;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Trạng thái đơn hàng";
-            // 
-            // cboTrangThaiDonHang
-            // 
-            cboTrangThaiDonHang.Dock = DockStyle.Fill;
-            cboTrangThaiDonHang.FormattingEnabled = true;
-            cboTrangThaiDonHang.Location = new Point(9, 29);
-            cboTrangThaiDonHang.Name = "cboTrangThaiDonHang";
-            cboTrangThaiDonHang.Size = new Size(182, 28);
-            cboTrangThaiDonHang.TabIndex = 17;
-            // 
             // HoaDonUC
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
@@ -273,14 +230,15 @@
             Margin = new Padding(4);
             Name = "HoaDonUC";
             Size = new Size(938, 427);
+            Load += HoaDonUC_Load;
             tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvHoaDon).EndInit();
             flowLayoutPanel3.ResumeLayout(false);
             flowLayoutPanel3.PerformLayout();
+            groupBox3.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             flowLayoutPanel4.ResumeLayout(false);
-            groupBox3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -288,12 +246,6 @@
 
         private TableLayoutPanel tableLayoutPanel2;
         private DataGridView dgvHoaDon;
-        private DataGridViewButtonColumn dataGridViewButtonColumn1;
-        private DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private DataGridViewComboBoxColumn dataGridViewComboBoxColumn1;
-        private DataGridViewImageColumn dataGridViewImageColumn1;
-        private DataGridViewLinkColumn dataGridViewLinkColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private FlowLayoutPanel flowLayoutPanel3;
         private TextBox txtTimKiem;
         private GroupBox groupBox1;

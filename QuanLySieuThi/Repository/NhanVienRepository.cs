@@ -5,16 +5,17 @@ using System.Linq;
 
 namespace QuanLySieuThi.Repository
 {
-    // Repository cho Nhân viên
+    // Repository cho Nhân viên  
     public interface INhanVienRepository
     {
         IEnumerable<NhanVien> GetAll();
-        NhanVien GetById(int id);                 // thêm
+        NhanVien GetById(int id);
         void Add(NhanVien nhanVien);
         void Update(NhanVien nhanVien);
-        void Delete(NhanVien nhanVien);           // thêm
+        void Delete(NhanVien nhanVien);
+        IEnumerable<object> GetNhanVienView();
+        NhanVien GetById_Pass(string maHienThi, string password);
     }
-
     public class NhanVienRepository : INhanVienRepository
     {
         private readonly QlsieuThiContext _context;
@@ -24,6 +25,32 @@ namespace QuanLySieuThi.Repository
             _context = context;
         }
 
+        public NhanVien GetById_Pass(string maHienThi, string password)
+        {
+            return _context.NhanViens
+                .Include(nv => nv.MaCvNavigation) // Tải dữ liệu ChucVu
+              .FirstOrDefault(nv => nv.MaHienThi == maHienThi && nv.MatKhau == password);
+        }
+
+
+        public IEnumerable<object> GetNhanVienView()
+        {
+            return _context.NhanViens
+                .OrderByDescending(nv => nv.MaNv)
+                 .Include(nv => nv.MaCvNavigation)
+                 .Where(nv => nv.DaXoa != true)
+                 .Select(nv => new
+                 {
+                     nv.MaNv,
+                     nv.MaHienThi,
+                     nv.TenNv,
+                     nv.GioiTinh,
+                     nv.NgaySinh,
+                     nv.Sdt,
+                     nv.Cccd,
+                     ChucVu = nv.MaCvNavigation.TenCv
+                 }).ToList();
+        }
         public IEnumerable<NhanVien> GetAll()
         {
             return _context.NhanViens

@@ -88,8 +88,6 @@
             txtTen.Name = "txtTen";
             txtTen.Size = new Size(452, 27);
             txtTen.TabIndex = 0;
-            txtTen.Text = "dddddd";
-            txtTen.Visible = false;
             // 
             // groupBox1
             // 
@@ -125,8 +123,6 @@
             txtSDT.Name = "txtSDT";
             txtSDT.Size = new Size(452, 27);
             txtSDT.TabIndex = 0;
-            txtSDT.Text = "dddddd";
-            txtSDT.Visible = false;
             // 
             // groupBox3
             // 
@@ -145,6 +141,7 @@
             // 
             cboGioiTinh.Dock = DockStyle.Fill;
             cboGioiTinh.FormattingEnabled = true;
+            cboGioiTinh.Items.AddRange(new object[] { "Nam", "Nữ" });
             cboGioiTinh.Location = new Point(4, 24);
             cboGioiTinh.Name = "cboGioiTinh";
             cboGioiTinh.Size = new Size(452, 28);
@@ -194,7 +191,6 @@
             txtCMND.PlaceholderText = "cccd hoặc cmnd";
             txtCMND.Size = new Size(452, 27);
             txtCMND.TabIndex = 0;
-            txtCMND.Visible = false;
             // 
             // groupBox6
             // 
@@ -228,6 +224,7 @@
             btnResetMK.TabIndex = 30;
             btnResetMK.Text = "Reset password";
             btnResetMK.UseVisualStyleBackColor = true;
+            btnResetMK.Click += btnResetMK_Click;
             // 
             // btnXoa
             // 
@@ -241,6 +238,7 @@
             btnXoa.TabIndex = 31;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // NhanVienForm
             // 

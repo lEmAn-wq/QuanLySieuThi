@@ -58,6 +58,10 @@
             lblDiemConLaiSauDoi = new Label();
             groupBox9 = new GroupBox();
             groupBox7 = new GroupBox();
+            MaSP = new DataGridViewTextBoxColumn();
+            TenSP = new DataGridViewTextBoxColumn();
+            GiaBan = new DataGridViewTextBoxColumn();
+            SoLuong = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
@@ -220,6 +224,7 @@
             btnXacNhanKH.TabIndex = 9;
             btnXacNhanKH.Text = "Xác nhận";
             btnXacNhanKH.UseVisualStyleBackColor = false;
+            btnXacNhanKH.Click += btnXacNhanKH_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -247,7 +252,7 @@
             // 
             cboHinhThucThanhToan.Dock = DockStyle.Top;
             cboHinhThucThanhToan.FormattingEnabled = true;
-            cboHinhThucThanhToan.Items.AddRange(new object[] { "Nam", "Nữ" });
+            cboHinhThucThanhToan.Items.AddRange(new object[] { "Tiền mặt", "Chuyển khoản" });
             cboHinhThucThanhToan.Location = new Point(3, 21);
             cboHinhThucThanhToan.Name = "cboHinhThucThanhToan";
             cboHinhThucThanhToan.Size = new Size(248, 25);
@@ -278,7 +283,7 @@
             btnXacNhanSP.TabIndex = 26;
             btnXacNhanSP.Text = "Xác nhận";
             btnXacNhanSP.UseVisualStyleBackColor = false;
-            btnXacNhanSP.Click += button1_Click;
+            btnXacNhanSP.Click += btnXacNhanSP_Click;
             // 
             // txtNhapMaSP
             // 
@@ -294,6 +299,7 @@
             // 
             dgvSP_Ban.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvSP_Ban.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSP_Ban.Columns.AddRange(new DataGridViewColumn[] { MaSP, TenSP, GiaBan, SoLuong });
             dgvSP_Ban.Dock = DockStyle.Fill;
             dgvSP_Ban.Location = new Point(3, 50);
             dgvSP_Ban.Name = "dgvSP_Ban";
@@ -404,6 +410,7 @@
             btnLuuHD.TabIndex = 33;
             btnLuuHD.Text = "Lưu hóa đơn";
             btnLuuHD.UseVisualStyleBackColor = false;
+            btnLuuHD.Click += btnLuuHD_Click;
             // 
             // lblDiemConLaiSauDoi
             // 
@@ -442,6 +449,29 @@
             groupBox7.TabIndex = 36;
             groupBox7.TabStop = false;
             groupBox7.Text = "Hóa đơn tạm lưu:";
+            // 
+            // MaSP
+            // 
+            MaSP.HeaderText = "Mã sản phẩm";
+            MaSP.Name = "MaSP";
+            MaSP.ReadOnly = true;
+            // 
+            // TenSP
+            // 
+            TenSP.HeaderText = "Tên sản phẩm";
+            TenSP.Name = "TenSP";
+            TenSP.ReadOnly = true;
+            // 
+            // GiaBan
+            // 
+            GiaBan.HeaderText = "Giá bán";
+            GiaBan.Name = "GiaBan";
+            GiaBan.ReadOnly = true;
+            // 
+            // SoLuong
+            // 
+            SoLuong.HeaderText = "Số lượng";
+            SoLuong.Name = "SoLuong";
             // 
             // TaoHoaDonUC
             // 
@@ -510,5 +540,9 @@
         private TextBox txtMaKH;
         private TextBox txtNhapMaKH;
         private Button btnXacNhanKH;
+        private DataGridViewTextBoxColumn MaSP;
+        private DataGridViewTextBoxColumn TenSP;
+        private DataGridViewTextBoxColumn GiaBan;
+        private DataGridViewTextBoxColumn SoLuong;
     }
 }

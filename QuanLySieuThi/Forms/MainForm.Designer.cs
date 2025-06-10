@@ -208,6 +208,7 @@
             btnDX.TabIndex = 1;
             btnDX.Text = "Đăng xuất";
             btnDX.UseVisualStyleBackColor = true;
+            btnDX.Click += btnDX_Click;
             // 
             // lblThongTinNhanVien
             // 

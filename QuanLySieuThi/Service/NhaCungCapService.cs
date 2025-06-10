@@ -11,6 +11,7 @@ namespace QuanLySieuThi.Service
         void Create(NhaCungCap nhaCungCap);
         void Update(NhaCungCap nhaCungCap);
         void Delete(NhaCungCap nhaCungCap);
+        NhaCungCap GetByMaHienThi(string maHienThi);
     }
 
     public class NhaCungCapService : INhaCungCapService
@@ -20,6 +21,11 @@ namespace QuanLySieuThi.Service
         public NhaCungCapService(INhaCungCapRepository repo)
         {
             _repo = repo;
+        }
+
+        public NhaCungCap GetByMaHienThi(string maHienThi)
+        {
+            return _repo.GetByMaHienThi(maHienThi);
         }
 
         public IEnumerable<NhaCungCap> GetAll()

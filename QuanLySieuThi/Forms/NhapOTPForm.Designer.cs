@@ -32,13 +32,14 @@
             txtMaOTP = new TextBox();
             btnOK = new Button();
             label1 = new Label();
+            btnNewOTP = new Button();
             groupBox4.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox4
             // 
             groupBox4.Controls.Add(txtMaOTP);
-            groupBox4.Location = new Point(4, 68);
+            groupBox4.Location = new Point(4, 57);
             groupBox4.Margin = new Padding(20, 10, 20, 10);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(162, 51);
@@ -56,12 +57,13 @@
             // 
             // btnOK
             // 
-            btnOK.Location = new Point(180, 86);
+            btnOK.Location = new Point(180, 66);
             btnOK.Name = "btnOK";
             btnOK.Size = new Size(75, 23);
             btnOK.TabIndex = 6;
             btnOK.Text = "OK";
             btnOK.UseVisualStyleBackColor = true;
+            btnOK.Click += btnOK_Click;
             // 
             // label1
             // 
@@ -73,11 +75,22 @@
             label1.Text = "Mã OTP đã được gửi đến SĐT khách hàng (hiệu lực trong vòng 1 phút)";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // btnNewOTP
+            // 
+            btnNewOTP.Location = new Point(169, 106);
+            btnNewOTP.Name = "btnNewOTP";
+            btnNewOTP.Size = new Size(86, 23);
+            btnNewOTP.TabIndex = 8;
+            btnNewOTP.Text = "Gửi mã mới";
+            btnNewOTP.UseVisualStyleBackColor = true;
+            btnNewOTP.Click += btnNewOTP_Click;
+            // 
             // NhapOTPForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(257, 132);
+            Controls.Add(btnNewOTP);
             Controls.Add(label1);
             Controls.Add(btnOK);
             Controls.Add(groupBox4);
@@ -99,5 +112,6 @@
         private TextBox txtMaOTP;
         private Button btnOK;
         private Label label1;
+        private Button btnNewOTP;
     }
 }

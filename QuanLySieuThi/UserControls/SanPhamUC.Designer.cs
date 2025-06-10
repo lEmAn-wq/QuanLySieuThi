@@ -128,7 +128,7 @@
             cboSanPhamTonKho.Dock = DockStyle.Top;
             cboSanPhamTonKho.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
             cboSanPhamTonKho.FormattingEnabled = true;
-            cboSanPhamTonKho.Items.AddRange(new object[] { "Loại sản phẩm", "Thương hiệu", "Ngành hàng", "Ưu đãi" });
+            cboSanPhamTonKho.Items.AddRange(new object[] { "Còn hàng", "Hết hàng" });
             cboSanPhamTonKho.Location = new Point(4, 22);
             cboSanPhamTonKho.Margin = new Padding(4);
             cboSanPhamTonKho.Name = "cboSanPhamTonKho";
@@ -147,6 +147,8 @@
             ckboxTatCa.TabIndex = 21;
             ckboxTatCa.Text = "Check all";
             ckboxTatCa.UseVisualStyleBackColor = true;
+            ckboxTatCa.Visible = false;
+            ckboxTatCa.CheckedChanged += ckboxTatCa_CheckedChanged;
             // 
             // groupBox4
             // 
@@ -210,6 +212,7 @@
             ckboxShowCheck.TabIndex = 18;
             ckboxShowCheck.Text = "Show check";
             ckboxShowCheck.UseVisualStyleBackColor = true;
+            ckboxShowCheck.CheckedChanged += ckboxShowCheck_CheckedChanged;
             // 
             // groupBox1
             // 
@@ -297,6 +300,7 @@
             btnApDungGiamGia.TabIndex = 22;
             btnApDungGiamGia.Text = "Áp dụng giảm giá";
             btnApDungGiamGia.UseVisualStyleBackColor = true;
+            btnApDungGiamGia.Click += btnApDungGiamGia_Click;
             // 
             // btnHuyGiamGia
             // 
@@ -308,6 +312,7 @@
             btnHuyGiamGia.TabIndex = 23;
             btnHuyGiamGia.Text = "Hủy bỏ giảm giá";
             btnHuyGiamGia.UseVisualStyleBackColor = true;
+            btnHuyGiamGia.Click += btnHuyGiamGia_Click;
             // 
             // btnTaoPhieuNhap
             // 
@@ -319,6 +324,7 @@
             btnTaoPhieuNhap.TabIndex = 20;
             btnTaoPhieuNhap.Text = "Tạo phiếu nhập";
             btnTaoPhieuNhap.UseVisualStyleBackColor = true;
+            btnTaoPhieuNhap.Click += btnTaoPhieuNhap_Click;
             // 
             // btnThemSanPham
             // 
@@ -330,6 +336,7 @@
             btnThemSanPham.TabIndex = 21;
             btnThemSanPham.Text = "Thêm sản phẩm";
             btnThemSanPham.UseVisualStyleBackColor = true;
+            btnThemSanPham.Click += btnThemSanPham_Click;
             // 
             // btnXoaSanPham
             // 
@@ -355,6 +362,7 @@
             Margin = new Padding(4);
             Name = "SanPhamUC";
             Size = new Size(938, 427);
+            Load += SanPhamUC_Load;
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

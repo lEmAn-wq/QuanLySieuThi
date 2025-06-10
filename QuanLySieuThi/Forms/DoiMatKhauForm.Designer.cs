@@ -82,6 +82,7 @@
             btnDoiMK.TabIndex = 9;
             btnDoiMK.Text = "Đổi mật khẩu";
             btnDoiMK.UseVisualStyleBackColor = false;
+            btnDoiMK.Click += btnDoiMK_Click;
             // 
             // flowLayoutPanel1
             // 

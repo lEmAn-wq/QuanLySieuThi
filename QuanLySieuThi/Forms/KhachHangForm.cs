@@ -80,7 +80,8 @@ namespace QuanLySieuThi.Forms
                     khachHang.NgaySinh = DateOnly.FromDateTime(dtpNgaySinh.Value);
                     khachHang.GioiTinh = cboGioiTinh.SelectedItem.ToString();
                     khachHangService.Create(khachHang);
-                    TienIch.UIHelper.ShowMessage("Thêm khách hàng thành công!");
+                    new NhapOTPForm(khachHang, khachHangService).ShowDialog();
+                  
                 }
                 else if (button1.Text == "Sửa")
                 {

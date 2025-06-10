@@ -11,6 +11,7 @@ namespace QuanLySieuThi.Service
         void Create(SanPham sanPham);
         void Update(SanPham sanPham);
         void Delete(SanPham sanPham);
+         SanPham GetByMaHienThi(string maHienThi); // thêm
     }
 
     public class SanPhamService : ISanPhamService
@@ -20,6 +21,11 @@ namespace QuanLySieuThi.Service
         public SanPhamService(ISanPhamRepository repo)
         {
             _repo = repo;
+        }
+
+        public SanPham GetByMaHienThi(string maHienThi)
+        {
+            return _repo.GetByMaHienThi(maHienThi);
         }
 
         public IEnumerable<SanPham> GetAll()

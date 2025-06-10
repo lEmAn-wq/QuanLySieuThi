@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLySieuThi.Forms
+namespace QuanLySieuThi.Forms   
 {
     public partial class UuDaiSanPhamForm : Form
     {

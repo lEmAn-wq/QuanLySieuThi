@@ -93,6 +93,7 @@
             btnDN.TabIndex = 3;
             btnDN.Text = "Đăng nhập";
             btnDN.UseVisualStyleBackColor = false;
+            btnDN.Click += btnDN_Click;
             // 
             // llDoiMK
             // 
@@ -103,6 +104,7 @@
             llDoiMK.TabIndex = 4;
             llDoiMK.TabStop = true;
             llDoiMK.Text = "Đổi mật khẩu";
+            llDoiMK.LinkClicked += llDoiMK_LinkClicked;
             // 
             // pictureBox1
             // 

@@ -8,9 +8,11 @@ namespace QuanLySieuThi.Service
     {
         IEnumerable<NhanVien> GetAll();
         NhanVien GetById(int id);
+        Object GetNhanVienView();
         void Create(NhanVien nhanVien);
         void Update(NhanVien nhanVien);
         void Delete(NhanVien nhanVien);
+        NhanVien GetById_Pass(string maHienThi, string password);
     }
 
     public class NhanVienService : INhanVienService
@@ -22,9 +24,18 @@ namespace QuanLySieuThi.Service
             _repo = repo;
         }
 
+        public NhanVien GetById_Pass(string maHienThi, string password)
+        {
+            return _repo.GetById_Pass(maHienThi, password);
+        }
         public IEnumerable<NhanVien> GetAll()
         {
             return _repo.GetAll();
+        }
+
+        public Object GetNhanVienView()
+        {
+            return _repo.GetNhanVienView();
         }
 
         public NhanVien GetById(int id)
